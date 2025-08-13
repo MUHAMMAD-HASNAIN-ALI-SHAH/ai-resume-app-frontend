@@ -25,7 +25,6 @@ const useAuthStore = create<AuthState>((set) => ({
 
   verify: async () => {
     try {
-      console.log("Verifying authentication status...");
       const response = await axiosInstance.get("/api/v1/auth/verify");
       set({
         user: response.data.user,

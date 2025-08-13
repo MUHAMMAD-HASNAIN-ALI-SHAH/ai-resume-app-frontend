@@ -16,7 +16,6 @@ function App() {
 
   useEffect(() => {
     verify();
-    console.log("Verifying authentication status...");
   }, []);
 
   if (isAuthenticatedLoading) {

@@ -1,4 +1,4 @@
-import { Loader2, FileText, BarChart3, Clock } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import Navbar from "../components/dashboard/Navbar";
 import useAuthStore from "../store/useAuthStore";
 import { useNavigate } from "react-router-dom";
