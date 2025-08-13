@@ -1,13 +1,32 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/dashboard/Navbar";
+import useCreateResumeStore, {
+  type CreateResume,
+} from "../store/useCreateResumeStore";
+import { useEffect, useState } from "react";
+import { Loader2 } from "lucide-react";
 
 const ResumeBuilder = () => {
   const navigate = useNavigate();
+  const { getMyResumes, getMyResumesLoader } = useCreateResumeStore();
+  const [resumes, setResumes] = useState<CreateResume[]>();
+
+  useEffect(() => {
+    const fetchResumes = async () => {
+      try {
+        const data = await getMyResumes();
+        setResumes(data);
+      } catch (error) {
+        console.error("Error fetching resumes:", error);
+      }
+    };
+    fetchResumes();
+  }, [getMyResumes]);
   return (
     <div className="w-full min-h-screen bg-gray-50">
       <Navbar />
 
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 pb-10">
         {/* Title */}
         <div className="text-center font-bold text-3xl text-blue-600 mt-12">
           Resume Builder
@@ -31,17 +50,37 @@ const ResumeBuilder = () => {
             </h1>
           </div>
 
+          {getMyResumesLoader && (
+            <div className="w-full h-72 flex justify-center items-center">
+              <p className="text-gray-500">
+                <Loader2 className="animate-spin h-6 w-6 mr-2 inline-block" />
+              </p>
+            </div>
+          )}
+
           {/* Resume Templates */}
-          <div className="relative bg-green-300 h-72 w-60 shadow-md border border-gray-200 flex flex-col items-center cursor-pointer select-none rounded-xl hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-            <img
-              src="/resume.png"
-              alt="Resume Templates"
-              className="h-36 w-36 mt-8"
-            />
-            <h1 className="absolute bottom-5 left-1/2 -translate-x-1/2 text-center text-lg font-semibold text-gray-700">
-              Resume Templates
-            </h1>
-          </div>
+          {resumes && resumes.length > 0 ? (
+            resumes.map((resume) => (
+              <div
+                onClick={() =>
+                  navigate(`/dashboard/preview-resume/${resume._id}`)
+                }
+                key={resume._id}
+                className="relative h-72 w-60 shadow-md border border-gray-400 flex flex-col items-center cursor-pointer select-none rounded-xl hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out"
+              >
+                <img
+                  src="/resume.png"
+                  alt="Resume Templates"
+                  className="h-36 w-36 mt-8"
+                />
+                <h1 className="absolute bottom-5 left-1/2 -translate-x-1/2 text-center text-lg font-semibold text-gray-700">
+                  {resume.jobtitle || "My Resume"}
+                </h1>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>

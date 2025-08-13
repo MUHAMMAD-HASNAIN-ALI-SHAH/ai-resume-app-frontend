@@ -3,17 +3,14 @@ import { useReactToPrint } from "react-to-print";
 import useCreateResumeStore from "../../../store/useCreateResumeStore";
 
 const ResumePreview = () => {
-  const { form, formSubmitted } = useCreateResumeStore();
+  const { form, formSubmitted} =
+    useCreateResumeStore();
   const resumeRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({
     contentRef: resumeRef,
     documentTitle: `${form.fullname || "resume"}`,
   });
-
-  // ${
-  //       formSubmitted ? "w-full mx-auto" : "w-[60%]"
-  //     }
 
   return (
     <div className={` flex flex-col items-center gap-4 mr-5 mt-5 min-h-[40vh]`}>

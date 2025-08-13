@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 import ResumeBuilder from "./pages/ResumeBuilder";
 import ResumeAnalyser from "./pages/ResumeAnalyser";
 import CreateResume from "./pages/CreateResume";
+import PreviewResume from "./pages/PreviewResume";
 
 function App() {
   const { verify, isAuthenticated, isAuthenticatedLoading } = useAuthStore();
@@ -54,6 +55,12 @@ function App() {
           path="/dashboard/resume-builder/create-resume"
           element={
             isAuthenticated ? <CreateResume /> : <Navigate to={"/signin"} />
+          }
+        />
+        <Route
+          path="/dashboard/preview-resume/:resumeId"
+          element={
+            isAuthenticated ? <PreviewResume /> : <Navigate to={"/signin"} />
           }
         />
         <Route

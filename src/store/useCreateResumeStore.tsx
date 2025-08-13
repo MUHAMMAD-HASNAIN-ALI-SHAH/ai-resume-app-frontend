@@ -3,6 +3,7 @@ import axiosInstance from "../lib/axios";
 import { toast } from "react-toastify";
 
 export interface CreateResume {
+  _id?: string;
   fullname: string;
   jobtitle: string;
   address: string;
@@ -44,7 +45,12 @@ interface CreateResumeState {
   formSubmitting: boolean;
   prevFormMenu: () => void;
   nextFormMenu: () => void;
+  deleteResumeById: (id: string) => Promise<void>;
+  deleteResumeByIdLoader: boolean;
   getMyResumes: () => Promise<any>;
+  getMyResumeById: (id: string) => Promise<CreateResume>;
+  getMyResumeByIdLoader: boolean;
+  getMyResumesLoader: boolean;
   handleFormStrings: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
@@ -91,6 +97,9 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
     projects: [],
     skills: [],
   },
+  getMyResumeByIdLoader: false,
+  getMyResumesLoader: false,
+  deleteResumeByIdLoader: false,
   formSubmitting: false,
   formSubmitted: false,
   prevFormMenu: () => {
@@ -117,7 +126,9 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
   },
   getMyResumes: async () => {
     try {
+      set({ getMyResumesLoader: true });
       const response = await axiosInstance.get("/api/v2/create-resume");
+      set({ getMyResumesLoader: false });
       return response.data;
     } catch (error: any) {
       toast.error(
@@ -125,6 +136,37 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
           "An error occurred while fetching resumes."
       );
       return [];
+    } finally {
+      set({ getMyResumesLoader: false });
+    }
+  },
+  deleteResumeById: async (id: string) => {
+    try {
+      set({ deleteResumeByIdLoader: true });
+      await axiosInstance.delete(`/api/v2/create-resume/${id}`);
+      toast.success("Resume deleted successfully.");
+    } catch (error: any) {
+      toast.error(
+        error.response?.data?.message ||
+          "An error occurred while deleting the resume."
+      );
+    } finally {
+      set({ deleteResumeByIdLoader: false });
+    }
+  },
+  getMyResumeById: async (id: string) => {
+    try {
+      set({ getMyResumeByIdLoader: true });
+      const response = await axiosInstance.get(`/api/v2/create-resume/${id}`);
+      return response.data;
+    } catch (error: any) {
+      toast.error(
+        error.response?.data?.message ||
+          "An error occurred while fetching the resume."
+      );
+      return null;
+    } finally {
+      set({ getMyResumeByIdLoader: false });
     }
   },
   handleFormStrings: (e) => {

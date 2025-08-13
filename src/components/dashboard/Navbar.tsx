@@ -12,12 +12,6 @@ const Navbar = () => {
         >
           Dashboard
         </h1>
-        <button className="text-blue-500 hover:text-blue-600 transition cursor-pointer hover:underline">
-          Resume Builder
-        </button>
-        <button className="text-blue-500 hover:text-blue-600 transition cursor-pointer hover:underline">
-          Resume Analyser
-        </button>
       </div>
       {/* Links */}
       <div className="flex gap-1 md:gap-3">

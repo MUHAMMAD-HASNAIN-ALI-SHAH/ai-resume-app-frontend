@@ -23,7 +23,7 @@ const Dashboard = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="w-full max-w-5xl mx-auto mt-28 px-4 text-center">
+      <div className="w-full max-w-5xl mx-auto mt-36 px-4 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
           Welcome, <span className="text-blue-500">{user.username}</span> 👋
         </h1>
@@ -46,42 +46,6 @@ const Dashboard = () => {
           >
             Analyze Your Resume
           </button>
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-          {/* Total Resumes */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow duration-200">
-            <div className="flex items-center gap-3">
-              <FileText className="h-10 w-10 text-blue-500" />
-              <div>
-                <p className="text-sm text-gray-500">Total Resumes</p>
-                <h2 className="text-2xl font-bold text-gray-800">3</h2>
-              </div>
-            </div>
-          </div>
-
-          {/* Last Analyzed Score */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow duration-200">
-            <div className="flex items-center gap-3">
-              <BarChart3 className="h-10 w-10 text-green-500" />
-              <div>
-                <p className="text-sm text-gray-500">Last ATS Score</p>
-                <h2 className="text-2xl font-bold text-gray-800">85%</h2>
-              </div>
-            </div>
-          </div>
-
-          {/* Last Edited */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow duration-200">
-            <div className="flex items-center gap-3">
-              <Clock className="h-10 w-10 text-orange-500" />
-              <div>
-                <p className="text-sm text-gray-500">Last Edited</p>
-                <h2 className="text-2xl font-bold text-gray-800">2 days ago</h2>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
