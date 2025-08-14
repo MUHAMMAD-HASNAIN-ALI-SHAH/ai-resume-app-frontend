@@ -46,8 +46,8 @@ This is the frontend for the Resume Builder & Analyzer web app. It allows users 
    npm install
 
 3. - Create a `.env` file in the root:
-   - VITE_API_URL=
-     -VITE_CLIENT_URL=
+   - VITE_API_URL
+     -VITE_CLIENT_URL
      -VITE_GEMINI_API_KEY
 
 4. Start the project:
