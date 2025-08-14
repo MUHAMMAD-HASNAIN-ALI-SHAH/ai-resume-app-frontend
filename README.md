@@ -44,11 +44,13 @@ This is the frontend for the Resume Builder & Analyzer web app. It allows users 
 
 2. Install dependencies:
    npm install
+3. Create a `.env` file in the root directory and add the following variables:
 
-3. - Create a `.env` file in the root:
-   - VITE_API_URL
-     -VITE_CLIENT_URL
-     -VITE_GEMINI_API_KEY
+   ```env
+   VITE_API_URL=your_api_url_here
+   VITE_CLIENT_URL=your_client_url_here
+   VITE_GEMINI_API_KEY=your_gemini_api_key_here
+   ```
 
 4. Start the project:
    npm run dev
