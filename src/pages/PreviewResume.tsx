@@ -66,7 +66,7 @@ const PreviewResume = () => {
         </header>
       </div>
       {getMyResumeByIdLoader && (
-        <div className="flex items-center justify-center h-screen">
+        <div className="flex items-center justify-center">
           <p className="text-gray-500">
             <Loader2 className="animate-spin h-6 w-6 mr-2 inline-block" />
           </p>

@@ -177,7 +177,6 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
         [name]: value,
       },
     }));
-    console.log(get().form);
   },
   addMoreExperienceButton: () => {
     set((state) => ({
@@ -363,7 +362,6 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
         },
       };
     });
-    console.log(get().form.experience[index].summary);
   },
   reset: () =>
     set({

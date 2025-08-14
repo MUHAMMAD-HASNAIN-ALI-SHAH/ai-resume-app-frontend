@@ -33,8 +33,8 @@ const ResumeBuilder = () => {
         </div>
         <div className="mt-3 text-center">
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Create, edit, and manage your resumes effortlessly with our
-            easy-to-use tools.
+            Create and manage your resumes effortlessly with our easy-to-use
+            tools.
           </p>
         </div>
 

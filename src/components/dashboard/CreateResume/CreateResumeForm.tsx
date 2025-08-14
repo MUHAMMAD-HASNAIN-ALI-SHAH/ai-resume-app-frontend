@@ -51,7 +51,7 @@ const FormPersonalDetails = () => {
             className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-col md:flex-row gap-3">
           <div className="w-full">
             <label htmlFor="">Phone</label>
             <input
@@ -128,7 +128,7 @@ const FormProfessionaExperience = () => {
         {form.experience.length > 0 &&
           form.experience.map((experience, index) => (
             <div key={index}>
-              <div className="flex gap-3">
+              <div className="flex flex-col md:flex-row gap-3">
                 <div className="w-full">
                   <label htmlFor="">Position title</label>
                   <input
@@ -148,7 +148,7 @@ const FormProfessionaExperience = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-col md:flex-row gap-3">
                 <div className="w-full">
                   <label htmlFor="">City</label>
                   <input
@@ -168,7 +168,7 @@ const FormProfessionaExperience = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-col md:flex-row gap-3">
                 <div className="w-full">
                   <label htmlFor="">Start Date</label>
                   <input
@@ -199,8 +199,8 @@ const FormProfessionaExperience = () => {
               </div>
             </div>
           ))}
-        <div className="w-full flex justify-between">
-          <div className="flex gap-3">
+        <div className="w-full flex flex-col md:flex-row gap-3 justify-between">
+          <div className="flex flex-col md:flex-row gap-3">
             <button
               onClick={addMoreExperienceButton}
               className="border border-blue-300 text-blue-500 px-3 py-2 rounded-md cursor-pointer"
@@ -266,7 +266,7 @@ const FormEducation = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-col md:flex-row gap-3">
                 <div className="w-full">
                   <label htmlFor="">Start Date</label>
                   <input
@@ -300,8 +300,8 @@ const FormEducation = () => {
               </div>
             </div>
           ))}
-        <div className="w-full flex justify-between">
-          <div className="flex gap-3">
+        <div className="w-full flex flex-col md:flex-row gap-3 justify-between">
+          <div className="flex flex-col md:flex-row gap-3">
             <button
               onClick={addMoreEducationButton}
               className="border border-blue-300 text-blue-500 px-3 py-2 rounded-md cursor-pointer"
@@ -347,7 +347,7 @@ const FormProjects = () => {
                   className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
                 />
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-col md:flex-row gap-3">
                 <div className="w-full">
                   <label htmlFor="">Start Date</label>
                   <input
@@ -380,11 +380,11 @@ const FormProjects = () => {
               </div>
             </div>
           ))}
-        <div className="w-full flex justify-between">
-          <div className="flex gap-3">
+        <div className="w-full flex flex-col md:flex-row gap-3 justify-between">
+          <div className="flex flex-col md:flex-row gap-3">
             <button
               onClick={addMoreProjectButton}
-              className="border border-blue-300 text-blue-500 px-3 py-2 rounded-md cursor-pointer"
+              className="border border-blue-300 text-blue-500 md:px-3 py-2 rounded-md cursor-pointer"
             >
               Add Education
             </button>
@@ -425,8 +425,8 @@ const FormSkills = () => {
               </div>
             </div>
           ))}
-        <div className="w-full flex justify-between">
-          <div className="flex gap-3">
+        <div className="w-full flex flex-col md:flex-row gap-3 justify-between">
+          <div className="flex flex-col md:flex-row gap-3">
             <button
               onClick={addMoreSkillsButton}
               className="border border-blue-300 text-blue-500 px-3 py-2 rounded-md cursor-pointer"

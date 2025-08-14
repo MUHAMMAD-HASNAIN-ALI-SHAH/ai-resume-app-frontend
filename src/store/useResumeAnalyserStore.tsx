@@ -16,7 +16,6 @@ interface ResumeAnalyserState {
   handleFormStrings: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
-  submitForm: () => void;
   atsString: {
     atsScore: number;
     atsPoints: { point: string; description: string }[];
@@ -73,10 +72,6 @@ const useResumeAnalyserStore = create<ResumeAnalyserState>((set, get) => ({
         form: { ...state.form, [name]: e.target.value },
       }));
     }
-  },
-
-  submitForm: () => {
-    console.log("Form data:", get().form);
   },
 
   getResumeATSScore: async () => {
