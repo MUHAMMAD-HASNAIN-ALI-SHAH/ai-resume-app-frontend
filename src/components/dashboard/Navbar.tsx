@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import useAuthStore from "../../store/useAuthStore";
 
 const Navbar = () => {
+  const { logout } = useAuthStore();
   const navigate = useNavigate();
   return (
     <nav className="w-full shadow-sm select-none mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
@@ -15,7 +17,10 @@ const Navbar = () => {
       </div>
       {/* Links */}
       <div className="flex gap-1 md:gap-3">
-        <button className="px-2 md:px-4 py-1 md:py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors whitespace-nowrap">
+        <button
+          onClick={logout}
+          className="px-2 md:px-4 py-1 md:py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors whitespace-nowrap"
+        >
           Logout
         </button>
       </div>
