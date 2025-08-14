@@ -3,7 +3,8 @@ import { useRef } from "react";
 import useResumeAnalyserStore from "../../../store/useResumeAnalyserStore";
 
 const ResumeAnalyserForm = () => {
-  const { handleFormStrings, form } = useResumeAnalyserStore();
+  const { handleFormStrings, form, getResumeATSScore } =
+    useResumeAnalyserStore();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleButtonClick = () => {
@@ -14,7 +15,7 @@ const ResumeAnalyserForm = () => {
 
   return (
     <>
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
         {/* Upload Resume Button */}
         <div className="flex flex-col gap-6 p-8 bg-white rounded-xl shadow hover:shadow-lg transition border border-gray-200 hover:border-blue-400 w-full max-w-lg mx-auto">
           {/* Company Name */}
@@ -38,7 +39,7 @@ const ResumeAnalyserForm = () => {
               name="positiontitle"
               onChange={handleFormStrings}
               value={form.positiontitle}
-              placeholder="Enter company name"
+              placeholder="Enter position title"
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
             />
           </div>
@@ -59,7 +60,10 @@ const ResumeAnalyserForm = () => {
           </div>
 
           {/* Submit Button */}
-          <button className="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-blue-600 transition">
+          <button
+            onClick={getResumeATSScore}
+            className="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-blue-600 transition"
+          >
             Analyze Resume
           </button>
         </div>
