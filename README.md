@@ -6,13 +6,14 @@ It allows users to create resumes by entering their personal and professional de
 - **Job Title**
 - **Company Description**
 - **Company Name**
+- **Resume Pdf Format**
 
 ---
 
 ## 🚀 Features
 
 - User-friendly resume creation form.
-- Google Sign-In and Email/Password authentication.
+- Google Sign-In.
 - Resume analysis with visual feedback.
 - Responsive design for mobile and desktop.
 - Dashboard for managing resumes.
@@ -22,6 +23,8 @@ It allows users to create resumes by entering their personal and professional de
 ## 🛠 Tech Stack
 
 - **React.js** (UI)
+- **Express.js** (SERVER)
+- **Session Storage** (Authentication)
 - **Tailwind CSS** (Styling)
 - **Axios** (API calls)
 - **React Router** (Routing)
