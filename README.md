@@ -25,26 +25,32 @@ It allows users to create resumes by entering their personal and professional de
 - **Tailwind CSS** (Styling)
 - **Axios** (API calls)
 - **React Router** (Routing)
-- **Mantine UI** (UI Components)
+- **Mongodb** (Database)
+- **Google Auth** (Authentication)
 
 ---
 
 This is the frontend for the Resume Builder & Analyzer web app. It allows users to:
+
 - Build a resume by entering details
 - Analyze resumes based on Job Title, Company Description, and Company Name
 
 ---
 
 ## Setup Instructions
+
 1. Clone the repository and navigate into the folder:
    git clone <frontend-repo-url> && cd frontend
 
 2. Install dependencies:
    npm install
 
-3. Create a `.env` file in the root:
-   VITE_BACKEND_URL=http://localhost:5000
-   VITE_GOOGLE_CLIENT_ID=your-google-client-id
+3. - Create a `.env` file in the root:
+   - VITE_API_URL=
+     -VITE_CLIENT_URL=
+     -VITE_GEMINI_API_KEY
 
 4. Start the project:
    npm run dev
+
+---
