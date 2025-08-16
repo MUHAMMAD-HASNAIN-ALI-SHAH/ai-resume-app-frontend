@@ -2,6 +2,9 @@ import { Loader2 } from "lucide-react";
 import Navbar from "../components/dashboard/Navbar";
 import useAuthStore from "../store/useAuthStore";
 import { useNavigate } from "react-router-dom";
+import Features from "../components/dashboard/CreateResume/FeatureBox";
+import HowItWorks from "../components/dashboard/CreateResume/Guidance";
+import CopyWriteLine from "../components/dashboard/CreateResume/CopywriteLine";
 
 const Dashboard = () => {
   const { user } = useAuthStore();
@@ -48,6 +51,11 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
+      <div className=" w-full mt-[5rem] bg-gradient-to-b from-purple-500 to-indigo-600">
+        <Features/>
+        <HowItWorks/>
+      </div>
+      <CopyWriteLine/>
     </div>
   );
 };
