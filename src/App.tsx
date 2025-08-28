@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
@@ -10,6 +9,7 @@ import ResumeBuilder from "./pages/ResumeBuilder";
 import ResumeAnalyser from "./pages/ResumeAnalyser";
 import CreateResume from "./pages/CreateResume";
 import PreviewResume from "./pages/PreviewResume";
+import HomePage from "./pages/HomePage";
 
 function App() {
   const { verify, isAuthenticated, isAuthenticatedLoading } = useAuthStore();
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="w-full bg-white">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/signin"
           element={!isAuthenticated ? <Signin /> : <Navigate to={"/"} />}

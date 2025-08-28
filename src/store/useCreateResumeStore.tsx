@@ -51,6 +51,7 @@ interface CreateResumeState {
   getMyResumeById: (id: string) => Promise<CreateResume>;
   getMyResumeByIdLoader: boolean;
   getMyResumesLoader: boolean;
+  submitLoader: boolean;
   handleFormStrings: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
@@ -84,6 +85,7 @@ interface CreateResumeState {
 }
 
 const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
+  submitLoader: false,
   formMenu: 1,
   form: {
     fullname: "",
@@ -114,6 +116,11 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
   },
   handleCreateResumeSubmit: async () => {
     try {
+      if (get().submitLoader) {
+        toast.error("Form is already submitting. Please wait.");
+        return;
+      }
+      set({ submitLoader: true });
       await axiosInstance.post("/api/v2/create-resume", get().form);
       set({ formSubmitted: true });
       set({ formSubmitting: true });
@@ -122,6 +129,9 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
         error.response?.data?.message ||
           "An error occurred while creating the resume."
       );
+    } finally {
+      set({ submitLoader: false });
+      set({ formSubmitting: false });
     }
   },
   getMyResumes: async () => {
