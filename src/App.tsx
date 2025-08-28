@@ -10,6 +10,7 @@ import ResumeAnalyser from "./pages/ResumeAnalyser";
 import CreateResume from "./pages/CreateResume";
 import PreviewResume from "./pages/PreviewResume";
 import HomePage from "./pages/HomePage";
+import InvalidPage from "./pages/InvalidPage";
 
 function App() {
   const { verify, isAuthenticated, isAuthenticatedLoading } = useAuthStore();
@@ -67,6 +68,10 @@ function App() {
           element={
             isAuthenticated ? <ResumeAnalyser /> : <Navigate to={"/signin"} />
           }
+        />
+        <Route
+          path="*"
+          element={ <InvalidPage /> }
         />
       </Routes>
     </div>

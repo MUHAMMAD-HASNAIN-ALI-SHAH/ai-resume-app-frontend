@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const features = [
   'AI-powered resume suggestions',
@@ -8,6 +9,7 @@ const features = [
 ];
 
 const Headline = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full bg-gradient-to-r from-cyan-400 to-blue-600 text-white py-4 px-4 flex items-center justify-between overflow-hidden">
       
@@ -29,7 +31,7 @@ const Headline = () => {
         </motion.div>
       </div>
 
-      <button className="ml-4 bg-yellow-300 text-black px-4 py-1 rounded-full font-semibold hover:scale-105 transition-transform">
+      <button onClick={()=>navigate("/dashboard")} className="ml-4 bg-yellow-300 text-black px-4 py-1 rounded-full font-semibold hover:scale-105 transition-transform">
         Get Started
       </button>
     </div>

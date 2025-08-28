@@ -116,6 +116,7 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
   },
   handleCreateResumeSubmit: async () => {
     try {
+      set({ formSubmitting: true });
       if (get().submitLoader) {
         toast.error("Form is already submitting. Please wait.");
         return;
@@ -123,7 +124,6 @@ const useCreateResumeStore = create<CreateResumeState>((set, get) => ({
       set({ submitLoader: true });
       await axiosInstance.post("/api/v2/create-resume", get().form);
       set({ formSubmitted: true });
-      set({ formSubmitting: true });
     } catch (error: any) {
       toast.error(
         error.response?.data?.message ||
