@@ -5,6 +5,7 @@ import useCreateResumeStore, {
 } from "../store/useCreateResumeStore";
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
+import CopyWriteLine from "../components/dashboard/CreateResume/CopywriteLine";
 
 const ResumeBuilder = () => {
   const navigate = useNavigate();
@@ -83,6 +84,7 @@ const ResumeBuilder = () => {
           )}
         </div>
       </div>
+      <CopyWriteLine/>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import Navbar from "../components/dashboard/Navbar";
 import ATSOverview from "../components/dashboard/ResumeAnalyser/ATSOverview";
 import ResumeAnalyserForm from "../components/dashboard/ResumeAnalyser/ResumeAnalyserForm";
 import useResumeAnalyserStore from "../store/useResumeAnalyserStore";
+import CopyWriteLine from "../components/dashboard/CreateResume/CopywriteLine";
 
 const ResumeAnalyser = () => {
   const { submitForAnalysis } = useResumeAnalyserStore();
@@ -26,6 +27,7 @@ const ResumeAnalyser = () => {
         {!submitForAnalysis && <ResumeAnalyserForm />}
         {submitForAnalysis && <ATSOverview />}
       </div>
+      <CopyWriteLine/>
     </div>
   );
 };
