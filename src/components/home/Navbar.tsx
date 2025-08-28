@@ -23,9 +23,10 @@ const Navbar = () => {
           {/* Website Name */}
           <div className="flex flex-col">
             <span className="text-xl md:text-2xl font-extrabold text-gray-900 tracking-tight drop-shadow-md">
-              AI Resume
+              Resume <span className="text-blue-600">Werse</span>
+              {/* AI Resume
               <span className="text-blue-600"> Analyser</span> &{" "}
-              <span className="text-cyan-500">Builder</span>
+              <span className="text-cyan-500">Builder</span> */}
             </span>
             <span className="text-sm md:text-base text-gray-500">
               Your smart AI-powered CV assistant
