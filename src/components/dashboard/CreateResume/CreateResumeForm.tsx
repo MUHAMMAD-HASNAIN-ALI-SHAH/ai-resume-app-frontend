@@ -236,69 +236,72 @@ const FormEducation = () => {
       <div className="w-full space-y-7 pt-5">
         {form.education.length > 0 &&
           form.education.map((education, index) => (
-            <div key={index}>
-              <div className="w-full">
-                <label htmlFor="">University Name</label>
-                <input
-                  value={education.universityname}
-                  onChange={(e) => handleEducationStrings(e, index)}
-                  name="universityname"
-                  className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
-                />
-              </div>
-              <div className="flex gap-3">
+            <>
+              <div key={index}>
                 <div className="w-full">
-                  <label htmlFor="">Degree</label>
+                  <label htmlFor="">Institude Name</label>
                   <input
-                    value={education.degree}
+                    value={education.universityname}
                     onChange={(e) => handleEducationStrings(e, index)}
-                    name="degree"
+                    name="universityname"
                     className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
                   />
                 </div>
-                <div className="w-full">
-                  <label htmlFor="">Major</label>
-                  <input
-                    value={education.major}
+                <div className="flex gap-3">
+                  <div className="w-full">
+                    <label htmlFor="">Degree</label>
+                    <input
+                      value={education.degree}
+                      onChange={(e) => handleEducationStrings(e, index)}
+                      name="degree"
+                      className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <label htmlFor="">Major</label>
+                    <input
+                      value={education.major}
+                      onChange={(e) => handleEducationStrings(e, index)}
+                      name="major"
+                      className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col md:flex-row gap-3">
+                  <div className="w-full">
+                    <label htmlFor="">Start Date</label>
+                    <input
+                      type="date"
+                      value={education.startdate}
+                      onChange={(e) => handleEducationStrings(e, index)}
+                      name="startdate"
+                      className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <label htmlFor="">End Date</label>
+                    <input
+                      type="date"
+                      value={education.enddate}
+                      onChange={(e) => handleEducationStrings(e, index)}
+                      name="enddate"
+                      className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex flex-col">
+                  <label htmlFor="">Summary</label>
+                  <textarea
+                    value={education.summary}
                     onChange={(e) => handleEducationStrings(e, index)}
-                    name="major"
+                    name="summary"
+                    id=""
                     className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
                   />
                 </div>
               </div>
-              <div className="flex flex-col md:flex-row gap-3">
-                <div className="w-full">
-                  <label htmlFor="">Start Date</label>
-                  <input
-                    type="date"
-                    value={education.startdate}
-                    onChange={(e) => handleEducationStrings(e, index)}
-                    name="startdate"
-                    className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
-                  />
-                </div>
-                <div className="w-full">
-                  <label htmlFor="">End Date</label>
-                  <input
-                    type="date"
-                    value={education.enddate}
-                    onChange={(e) => handleEducationStrings(e, index)}
-                    name="enddate"
-                    className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
-                  />
-                </div>
-              </div>
-              <div className="mt-4 flex flex-col">
-                <label htmlFor="">Summary</label>
-                <textarea
-                  value={education.summary}
-                  onChange={(e) => handleEducationStrings(e, index)}
-                  name="summary"
-                  id=""
-                  className="border p-2 w-full border-blue-300 focus:outline-none focus:border-blue-500"
-                />
-              </div>
-            </div>
+              <hr />
+            </>
           ))}
         <div className="w-full flex flex-col md:flex-row gap-3 justify-between">
           <div className="flex flex-col md:flex-row gap-3">
@@ -386,7 +389,7 @@ const FormProjects = () => {
               onClick={addMoreProjectButton}
               className="border border-blue-300 text-blue-500 md:px-3 py-2 rounded-md cursor-pointer"
             >
-              Add Education
+              Add Project
             </button>
             <button
               onClick={removeLastProject}
